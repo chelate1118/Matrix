@@ -18,8 +18,8 @@ private:
     vector<vector<fraction>> val;
 
 public:
-    fMatrix(int _n, int _m) {
-        val.resize(_n, vector<fraction>(_m, fraction(INT_MAX, 1)));
+    fMatrix(int _n, int _m, fraction _default) {
+        val.resize(_n, vector<fraction>(_m, _default));
         n = _n;
         m = _m;
     }
@@ -40,7 +40,7 @@ public:
     void push_back() { val.push_back(vector<fraction>(0)); }
 
     fMatrix cof(int x, int y) {
-        fMatrix res(0, 0);
+        fMatrix res(0, 0, fraction(0, 1));
         res.setSize(n - 1, m - 1);
 
         for (int i = 0; i < n; i++) {
@@ -80,6 +80,7 @@ public:
             }
             res += '\n';
         }
+        res += std::string("----------------------------------------------\n");
         return res;
     }
 };
