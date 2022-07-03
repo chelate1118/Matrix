@@ -6,6 +6,8 @@
 #define MATRIX_FRACTION_H
 
 #include <string>
+#include <algorithm>
+#include <climits>
 
 int abs(int x) {
     return x < 0 ? -x : x;
@@ -62,6 +64,21 @@ public:
     }
 
     /// Operator
+    void inverse() {
+        if (num == INT_MAX && den == 1) {
+            num = 0;
+            den = 1;
+            return;
+        }
+        if (num != 0) {
+            std::swap(num, den);
+            return;
+        }
+        num = INT_MAX;
+        den = 1;
+        return;
+    }
+
     fraction operator*(fraction x) {
         return fraction(num * x.num, den * x.den).refactor();
     }
@@ -78,7 +95,7 @@ public:
     }
 
     std::string to_string() {
-        return std::to_string(num) + " / " + std::to_string(den);
+        return std::to_string(num) + "/" + std::to_string(den);
     }
 
     fraction input() {

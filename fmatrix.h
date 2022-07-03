@@ -19,7 +19,7 @@ private:
 
 public:
     fMatrix(int _n, int _m) {
-        val.resize(_n, vector<fraction>(_m));
+        val.resize(_n, vector<fraction>(_m, fraction(INT_MAX, 1)));
         n = _n;
         m = _m;
     }
@@ -74,7 +74,9 @@ public:
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (j) res += ", ";
-                res += val[i][j].to_string();
+                if (val[i][j].getNum() == INT_MAX && val[i][j].getDen() == 1)
+                    res += "INF";
+                else res += val[i][j].to_string();
             }
             res += '\n';
         }
