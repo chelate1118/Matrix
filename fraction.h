@@ -25,7 +25,7 @@ private:
     int num, den;
 
     fraction refactor() {
-        if(den < 0) den *= -1, num *= -1;
+        if (den < 0) den *= -1, num *= -1;
         return *this;
     }
 
@@ -77,7 +77,6 @@ public:
         return (*this + x * fraction(-1, 1)).refactor();
     }
 
-    /// Print(Debug)
     std::string to_string() {
         return std::to_string(num) + " / " + std::to_string(den);
     }
@@ -87,7 +86,7 @@ public:
         char c;
         std::cin >> _num >> c >> _den;
 
-        if(c != '/') std::cout << "Error!";
+        if (c != '/') std::cout << "Error!";
 
         num = _num;
         den = _den;

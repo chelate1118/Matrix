@@ -3,4 +3,4 @@ project(Matrix)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Matrix main.cpp fraction.h matrix.h)
+add_executable(Matrix main.cpp fraction.h fmatrix.h)

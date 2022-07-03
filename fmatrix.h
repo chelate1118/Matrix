@@ -2,8 +2,8 @@
 // Created by Ryan Lee on 2022-06-21.
 //
 
-#ifndef MATRIX_MATRIX_H
-#define MATRIX_MATRIX_H
+#ifndef MATRIX_FMATRIX_H
+#define MATRIX_FMATRIX_H
 
 #include <vector>
 #include <limits.h>
@@ -12,13 +12,13 @@
 
 using std::vector;
 
-class matrix {
+class fMatrix {
 private:
     int n, m;
     vector<vector<fraction>> val;
 
 public:
-    matrix(int _n, int _m) {
+    fMatrix(int _n, int _m) {
         val.resize(_n, vector<fraction>(_m));
         n = _n;
         m = _m;
@@ -39,8 +39,8 @@ public:
 
     void push_back() { val.push_back(vector<fraction>(0)); }
 
-    matrix cof(int x, int y) {
-        matrix res(0, 0);
+    fMatrix cof(int x, int y) {
+        fMatrix res(0, 0);
         res.setSize(n - 1, m - 1);
 
         for (int i = 0; i < n; i++) {
@@ -82,4 +82,4 @@ public:
     }
 };
 
-#endif //MATRIX_MATRIX_H
+#endif //MATRIX_FMATRIX_H
