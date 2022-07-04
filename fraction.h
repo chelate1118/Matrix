@@ -64,19 +64,19 @@ public:
     }
 
     /// Operator
-    void inverse() {
+    fraction inverse() {
         if (num == INT_MAX && den == 1) {
             num = 0;
             den = 1;
-            return;
+            return *this;
         }
         if (num != 0) {
             std::swap(num, den);
-            return;
+            return *this;
         }
         num = INT_MAX;
         den = 1;
-        return;
+        return *this;
     }
 
     fraction operator*(fraction x) {

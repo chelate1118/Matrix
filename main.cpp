@@ -42,12 +42,13 @@ void solve() {
 
 //    std::cout << Kir.to_string();
 
-    std::cout << "Resistance is : " << Kir.cof(0, 0).det().getVal() / Kir.det().getVal();
+    std::cout << "Resistance is : " << Kir.cof(0, 0).det().getVal() / Kir.det().getVal() << ", "
+            << (Kir.cof(0, 0).det() * Kir.det().inverse()).to_string() << std::endl;
 }
 
 int main() {
-    std::freopen("./input/1.txt", "r", stdin);
-//    std::freopen("./input/2.txt", "r", stdin);
+//    std::freopen("./input/1.txt", "r", stdin);
+    std::freopen("./input/2.txt", "r", stdin);
     solve();
 
     return 0;
